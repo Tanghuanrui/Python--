@@ -17,5 +17,5 @@ f.readline([size=-1])	从文件中读取并返回一行（包括行结束符）�
 f.write(str)	将字符串str写入文件
 f.writelines(seq)	向文件写入字符串序列seq，seq应该是一个返回字符串的可迭代对象
 f.seek(offset, from)	在文件中移动文件指针，从from（0代表文件起始位置，1代表当前位置，2代表文件末尾）偏移offset个字节
-f.tell()	返回当前在文件中的位置
+f.tell()	返回当前在文件中（指针）的位置
 f.truncate([size=file.tell()])	截取文件到size个字节，默认是截取到文件指针当前位置
