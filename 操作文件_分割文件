@@ -1,0 +1,60 @@
+要求：将一个文件(123.txt)的数据进行分割按照以下规律保存保存
+1.将a的话单独保存成a_*.txt的文件（去掉a:）
+2.将b的话单独保存成b_*.txt的文件（去掉b:）
+3.最终保存有三段对话（6个文件），分别为a_1.txt,b_1.txt,a_2.txt,b_2.txt,a_3.txt,b_3.txt,文件中的对话使用“=======”分割
+
+文件123.txt内容展示：
+a：12岁时，母亲改嫁，继父对他十分严厉，常在母亲外出时痛打他。
+b：14岁时，他辍学离校，开始了流浪生活。
+a：16岁时，他谎报年龄参加了远征军。因航行途中晕船厉害，被提前遣送回乡。
+b：18岁时，他娶了个媳妇。但只过了几个月，媳妇就变卖了他所有的财产逃回娘家。
+==============================================================================
+a：20岁时，他当电工、开轮渡，后来又当铁路工人，没有一样工作顺利。
+b：30岁时，他在保险公司从事推销工作，后因奖金问题与老板闹翻而辞职。
+a：31岁时，他自学法律，并在朋友的鼓动下干起了律师行当。一次审案时，竟在法庭上与当事人大打出手。
+b：32岁时，他失业了，生活非常艰难。
+==============================================================================
+a：35岁时，不幸又一次降临到他的头上。当他开车路过一座大桥时，大桥钢绳断裂。他连人带车跌到河中，身受重伤，无法再干轮胎推销员工作。
+b：40岁时，他在一个镇上开了一家加油站，因挂广告牌把竞争对手打伤，引来一场纠纷。
+b：47岁时，他与第二任妻子离婚，三个孩子深受打击。
+a：61岁时，他竞选参议员，但最后落败。
+b：65岁时，政府修路拆了他刚刚红火的快餐馆，他不得不低价出售了所有设备。
+
+实现代码（路径自己配）：
+def save_file(a,b,count):
+    file_name_a='a_'+str(count)+'.txt'
+    file_name_b='b_'+str(count)+'.txt'
+
+    a_file=open(file_name_a,'w')
+    b_file=open(file_name_b,'w')
+
+    a_file.writelines(a)
+    b_file.writelines(b)
+
+    a_file.close()
+    b_file.close()
+
+def split_file(file_name):
+    f=open(r'C:\Users\Administrator\Desktop\py\123.txt','r')
+    a=[]
+    b=[]
+    count=1
+
+    for each_line in f:
+        if each_line[:6]!='======':
+            (role,line_spoken)=each_line.split('：',1)
+            if role=='a':
+                a.append(line_spoken)
+            if role=='b':
+                b.append(line_spoken)
+        else:
+            save_file(a,b,count)
+
+            a=[]
+            b=[]
+            count +=1
+
+    save_file(a,b,count)
+
+    f.close()
+split_file(r'C:\Users\Administrator\Desktop\py\123.txt')
