@@ -1,1 +1,14 @@
 1.编写一个程序，接受用户的输入并保存为新文件。程序实现如下：
+filename=input('请输入一个文件的名称：')
+f=open(filename,'w')
+print('请输入需要保存的内容（输入:w，则退出并保存）')
+while 1:
+    writesame=input()
+    if writesame!=':w':
+        f.write('%s\n' % writesame)
+    else:
+        break
+f.close()
+
+
+2.编写一个程序，比较用户输入的两个文件，如果不同，显示出所有不同处的行号与第一个不同字符的位置
