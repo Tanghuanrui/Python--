@@ -35,3 +35,12 @@ else:
 
 
 3.编写一个程序，当用户输入文件名和函数后，将该文件的前n行打印到屏幕
+file_name=input('请输入文件名：')
+line=input('请输入需要显示文件的前几行：')
+
+def aa(file_name,line):
+    file=open(file_name)
+    for i in range(int(line)):
+        print(file.readline(),end='')
+    file.close()
+aa(file_name,line)
