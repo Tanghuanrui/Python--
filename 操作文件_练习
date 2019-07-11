@@ -12,3 +12,26 @@ f.close()
 
 
 2.编写一个程序，比较用户输入的两个文件，如果不同，显示出所有不同处的行号与第一个不同字符的位置
+a=input('请输入需要比较的一个文件：')
+b=input('请输入需要比较的另一个文件：')
+f1=open(a)
+f2=open(b)
+count=0
+dif=[]
+for i in f1:
+    j=f2.readline()
+    count+=1
+    if i!=j:
+        dif.append(count)
+f1.close()
+f2.close()
+
+if len(dif)==0:
+    print('两个文件完全一样！')
+else:
+    print('======两个文件有%s出不同======')
+    for each in dif:
+        print('第%s行不一样'%each)
+
+
+3.编写一个程序，当用户输入文件名和函数后，将该文件的前n行打印到屏幕
