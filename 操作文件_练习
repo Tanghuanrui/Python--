@@ -88,3 +88,28 @@ def file_view(file_name,line_num):
 file_name=input(r'请输入需要打开的文件：')
 line_num=input('请输入需要显示的行数【格式如13:21或:21或21:或:】：')
 file_view(file_name,line_num)
+
+
+5.实现全部替换的程序
+file_name=input('请输入文件名：')
+rep_word=input('请输入需要替换的字符：')
+new_word=input('请输入新的字符：')
+
+name=open(file_name)
+
+content=[]
+count=0
+
+for eachline in name:
+    if rep_word in eachline:
+        count=eachline.count(rep_word)
+        eachline=eachline.replace(rep_word,new_word)
+        count+=1
+    content.append(eachline)
+decide=input('文件%s中共有%s个【%s】你确定要把所有的【%s】替换为【%s】吗?【YES/NO】:'%(file_name,count,rep_word,rep_word,new_word))
+
+if decide in ['YES','Yes','yes']:
+    f_write=open(file_name,'w')
+    f_write.writelines(content)
+    f_write.close()
+name.close()
