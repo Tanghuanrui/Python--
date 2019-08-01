@@ -113,3 +113,20 @@ if decide in ['YES','Yes','yes']:
     f_write.writelines(content)
     f_write.close()
 name.close()
+
+
+6.统计当前文件夹下每个文件类型的文件数：
+import os
+#path = r'C:\Users\Administrator\Desktop'
+files=os.listdir(os.getcwd())
+types=dict()
+for each_file in files:
+    if os.path.isdir(each_file):
+        types.setdefault('文件夹',0)
+        types['文件夹']+=1
+    else:
+        ext=os.path.splitext(each_file)[1]
+        types.setdefault(ext,0)
+        types[ext]+=1
+for each in types.keys():
+    print('该文件的夹下共有文件类型为【%s】的文件%d个' %(each,types[each]))
