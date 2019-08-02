@@ -130,3 +130,15 @@ for each_file in files:
         types[ext]+=1
 for each in types.keys():
     print('该文件的夹下共有文件类型为【%s】的文件%d个' %(each,types[each]))
+
+
+7.统计当前文件的文件大小。
+import os
+files=os.listdir(os.curdir)#获取当前路径
+file_num=dict()
+for each_file in files:
+    if os.path.isfile(each_file):
+        filesize=os.path.getsize(each_file)
+        file_num[each_file]=filesize
+for each in file_num.items():
+    print('文件【%s】的大小为：%s'%(each[0],each[1]))   
