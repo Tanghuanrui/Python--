@@ -1,2 +1,0 @@
-# Python_Program
-这是记录一些学习Python的过程的一些语法点与示例代码
